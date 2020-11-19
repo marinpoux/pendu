@@ -1,54 +1,47 @@
 #include "define.h"
 
-extern void init(int *tailleMot, int *compteur, int *gagne,
-                char *lettre,
-                char motRand[TAILLEMAX], char motDevine[TAILLEMAX]){
+extern void init(int *tailleMot, int *compteur, int *gagne, char *lettre){
 
-    *tailleMot=init_tailleMot();
+    *tailleMot=0;
 
-    *compteur=init_compteur();
+    *compteur=ESSAIS;
 
-    *gagne=init_gagne();
+    *gagne=0;
 
-    *lettre=init_proposition();
-
-    *motRand=init_motRand(int motRand[TAILLEMAX]);
-
-    *motDevine=init_motDevine(int motDevine[TAILLEMAX]);
-
-
+    *lettre=0;
 }
 
-extern int init_tailleMot(){
-    return 0;
-}
 
-extern int init_compteur(){
-    return ESSAIS;
-}
-
-extern int init_gagne(){
-    return 0;
-}
-
-extern char init_proposition(int lettre){
-    return 0;
-}
-
-extern char *init_motRand(int motRand[TAILLEMAX]){
+extern char *init_tableau(char motTab[TAILLEMAX]){
     int iTemp=0;
 
     for (iTemp=0; iTemp<TAILLEMAX; iTemp++){
-        motRand[iTemp]=0;
+        motTab[iTemp]=0;
     }
-    return motRand;
+    return motTab;
 }
 
-extern char *init_motDevine(int motDevine[TAILLEMAX]){
-    int iTemp=0;
 
-    for (iTemp=0; iTemp<TAILLEMAX; iTemp++){
-        motDevine[iTemp]=0;
+extern char *choixMot(char motTab[TAILLEMAX]){
+    int jTemp=0;
+    int nbRand = rand()%NBMOTS;
+
+    char tabMots[NBMOTS][TAILLEMAX]={  //ATTENTION: tenir NBMOTS et TAILLEMAX a jour!!
+            "bonjour",
+            "couscous",
+            "pantoufles",
+            "lapin",
+            "neurotransmetteur"
+            };
+
+    //printf("%d\n", nbRand);
+
+    while ((jTemp<TAILLEMAX) && (tabMots[nbRand][jTemp] != '\0')) {
+
+        motTab[jTemp] = tabMots[nbRand][jTemp];
+        jTemp++;
     }
-    return motDevine;
+    //printf("%s\n", motTab);
+
+    return motTab;
 }

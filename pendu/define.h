@@ -7,21 +7,16 @@
 #define ESSAIS  10      //nombre de tentatives donnees au joueur
 
 //prototypes
-    extern void choixMot();
     extern void regles();
     extern char lecture();
-    extern int comparaison(int tailleMot, char lettre, char motDevine[]);
-    extern void defaite();
-    extern int victoire(char motDevine[], int tailleMot);
+    extern char *comparaison(int tailleMot, int *compteur, int *gagne,
+                             char lettre, char motDevine[], char motRand[]);
+    extern void defaite(int compteur, char motRand[]);
+    extern int victoire(int tailleMot, char motDevine[], char motRand[]);
 
-    extern void init(int *tailleMot, int *compteur, int *gagne,
-                char *lettre,
-                char motRand[TAILLEMAX], char motDevine[TAILLEMAX]);
-        extern int init_tailleMot();
-        extern int init_compteur();
-        extern int init_gagne();
-        extern char init_proposition();
-        extern char *init_motRand(int motRand[TAILLEMAX]);
-        extern char *init_motDevine(int motDevine[TAILLEMAX]);
+    extern void init(int *tailleMot, int *compteur, int *gagne, char *lettre);
+    extern char *init_tableau(char motTab[TAILLEMAX]);
+
+    extern char *choixMot(char motTab[TAILLEMAX]);
 
 #endif // DEFINE_H_INCLUDED

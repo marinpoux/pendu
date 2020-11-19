@@ -1,37 +1,13 @@
 #include "define.h"
 
-void choixMot(){
-    char tabMots[NBMOTS][TAILLEMAX]={  //ATTENTION: tenir NBMOTS et TAILLEMAX a jour!!
-            "bonjour",
-            "couscous",
-            "pantoufles",
-            "lapin",
-            "neurotransmetteur"
-            };
-
-    int nbRand = rand()%NBMOTS;
-    int j=0;
-
-    //printf("%d\n", nbRand);
-
-    while ((j<TAILLEMAX) && (tabMots[nbRand][j] != '\0')) {
-    //for (i=0; i<MOTMAX;i++){
-
-        motRand[j] = tabMots[nbRand][j];
-        j++;
-    }
-    //printf("%s\n", motRand);
-}
-
-
-void regles(){
+extern void regles(){
 
     printf("Vous avez %d essais pour reussir a deviner le mot cache !\n", ESSAIS);
 
 }
 
 
-char lecture(){
+extern char lecture(){
     char lettre;
 
     printf("Proposez une lettre !\n");
@@ -41,7 +17,7 @@ char lecture(){
 }
 
 
-int comparaison(int tailleMot, char lettre, char motDevine[]){
+extern char *comparaison(int tailleMot, int *compteur, int *gagne, char lettre, char motDevine[], char motRand[]){
     int j=0;
     int oui=0;                          //incrementation si la lettre est contenue
 
@@ -59,24 +35,24 @@ int comparaison(int tailleMot, char lettre, char motDevine[]){
         printf("Oui, le mot contient la lettre %c !\n", lettre);
     } else {
 
-        compteur--;
+        *compteur--;
         printf("Non, le mot ne contient pas la lettre %c !\nIl vous reste %d essais !\n", lettre, compteur);
     }
 
     printf_s(motDevine);
 
-    defaite();
+    defaite(compteur, motRand);
 
-    if (victoire(motDevine, tailleMot)){
+    if (victoire(tailleMot, motDevine, motRand)){
 
-        return 1;
-    } else {
-        return 0;
+        *gagne=1;
     }
+
+    return motDevine;
 }
 
 
-void defaite(){
+extern void defaite(int compteur, char motRand[]){
 
     if (compteur == 0){
 
@@ -84,8 +60,9 @@ void defaite(){
     }
 }
 
-int victoire(char motDevine[], int tailleMot){
+extern int victoire(int tailleMot, char motDevine[], char motRand[]){
     int k=0;
+
     while (motDevine[k] == motRand[k]){
 
         k++;
