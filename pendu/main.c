@@ -57,7 +57,7 @@ int main()
         proposition = lecture();
         fflush(stdin);
 
-        *motDevine = comparaison(tailleMot, *compteur, *gagne, proposition, motDevine, motRand);
+        *motDevine = comparaison(tailleMot, &compteur, &gagne, proposition, motDevine, motRand);
     }
 
     return 0;
