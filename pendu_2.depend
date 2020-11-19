@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1605792812 source:c:\users\marin\desktop\cours\fd 2\algo\exercices\pendu\pendu_2\main.c
-	<stdio.h>
-	<stdlib.h>
-	<time.h>
-	<string.h>
-

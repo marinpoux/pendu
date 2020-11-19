@@ -1,0 +1,7 @@
+#gitignore pendu
+
+#/pendu/bin/Debug/pendu.exe
+#/pendu/ogb/Debug/main.o
+
+*.exe
+*.o
