@@ -5,3 +5,15 @@
 	<time.h>
 	<string.h>
 
+1605795779 source:c:\users\marin\desktop\cours\fd 2\algo\exercices\pendu\pendu\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"define.h"
+
+1605795982 c:\users\marin\desktop\cours\fd 2\algo\exercices\pendu\pendu\define.h
+
+1605795860 source:c:\users\marin\desktop\cours\fd 2\algo\exercices\pendu\pendu\methodes.c
+	"define.h"
+
