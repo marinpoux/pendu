@@ -1,29 +1,25 @@
 #include "define.h"
 
-extern void init(int *tailleMot, int *compteur, int *gagne, char *lettre){
+extern void init(int *tailleMot, int *compteur, char *lettre){
 
     *tailleMot=0;
 
     *compteur=ESSAIS;
 
-    *gagne=0;
-
     *lettre=0;
 }
 
 
-extern char *init_tableau(){
+extern void init_tableau(char initMot[TAILLEMAX]){
     int iTemp=0;
-    char initMot[TAILLEMAX];
 
     for (iTemp=0; iTemp<TAILLEMAX-1; iTemp++){
-        initMot[iTemp]=0;
+        initMot[iTemp]='\0';
     }
-    return initMot;
 }
 
 
-extern char *choixMot(char motTemp[TAILLEMAX]){
+extern void choixMot(char motTemp[TAILLEMAX]){
     int jTemp=0;
     int nbRand = rand()%NBMOTS;
 
@@ -44,5 +40,4 @@ extern char *choixMot(char motTemp[TAILLEMAX]){
     }
     //printf("%s\n", motTemp);
 
-    return motTemp;
 }

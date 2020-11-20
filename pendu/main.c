@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <string.h>
 #include "define.h"
 
 int main()
@@ -10,7 +6,6 @@ int main()
     int i=0;                    //compteur d'iteration (boucles)
     int tailleMot=0;            //longueur du mot e deviner
     int compteur=ESSAIS;        // compteur de tentatives restantes
-    int gagne=0;                //passe a 1 si le mot est trouve
 
     char proposition=0;         // lettre proposee par le joueur
 
@@ -24,22 +19,19 @@ int main()
 
     //initialisation
 
-    init(&tailleMot, &compteur, &gagne, &proposition);
+    init(&tailleMot, &compteur, &proposition);
 
-    *motRand = init_tableau();
-    *motDevine = init_tableau();
+    init_tableau(motRand);
+    init_tableau(motDevine);
 
     srand(time(NULL));                      //initialisation de la generation de nombres aleatoires
-    *motRand = choixMot(motRand);           //pioche du mot a deviner
+    choixMot(motRand);           //pioche du mot a deviner
 
     tailleMot = strlen(motRand);            //determination de la taille du mot a deviner
     //printf("%d\n", tailleMot);
 
     for (i=0; i<tailleMot; i++){            //generation des '_'
         motDevine[i]='_';
-    }
-    for (i=tailleMot; i<TAILLEMAX; i++){    //remplissage des cellules "vides"
-        motDevine[i]=' ';
     }
 
     ///////////////////////////////////
@@ -51,14 +43,17 @@ int main()
 
     printf("Voici le mot : %s\n", motDevine);
 
-
-    while ((gagne == 0) && (compteur > 0)){
+    while ((strcmp(motDevine, motRand) != 0) && (compteur > 0)){
 
         proposition = lecture();
         fflush(stdin);
 
-        *motDevine = comparaison(tailleMot, &compteur, &gagne, proposition, motDevine, motRand);
+        comparaison(tailleMot, &compteur, proposition, motDevine, motRand);
     }
+
+    defaite(compteur, motRand);
+
+    victoire(motDevine, motRand);
 
     return 0;
 }

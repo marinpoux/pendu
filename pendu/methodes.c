@@ -17,7 +17,7 @@ extern char lecture(){
 }
 
 
-extern char *comparaison(int tailleMot, int *compteur, int *gagne, char lettre, char motDevine[], char motRand[]){
+extern void comparaison(int tailleMot, int *compteur, char lettre, char motDevine[], char motRand[]){
     int j=0;
     int oui=0;                          //incrementation si la lettre est contenue
 
@@ -33,22 +33,13 @@ extern char *comparaison(int tailleMot, int *compteur, int *gagne, char lettre, 
     if (oui > 0) {
 
         printf("Oui, le mot contient la lettre %c !\n", lettre);
+        printf("%s\n",motDevine);
+
     } else {
 
-        *compteur--;
-        printf("Non, le mot ne contient pas la lettre %c !\nIl vous reste %d essais !\n", lettre, compteur);
+        (*compteur)--;
+        printf("Non, le mot ne contient pas la lettre %c !\nIl vous reste %d essais !\n", lettre, *compteur);
     }
-
-    printf_s(motDevine);
-
-    defaite(compteur, motRand);
-
-    if (victoire(tailleMot, motDevine, motRand)){
-
-        *gagne=1;
-    }
-
-    return motDevine;
 }
 
 
@@ -60,21 +51,10 @@ extern void defaite(int compteur, char motRand[]){
     }
 }
 
-extern int victoire(int tailleMot, char motDevine[], char motRand[]){
-    int k=0;
+extern void victoire(char motDevine[], char motRand[]){
 
-    while (motDevine[k] == motRand[k]){
+    if (strcmp(motDevine, motRand) == 0){
 
-        k++;
-    }
-
-    if (k == tailleMot){
-
-        printf("Bravo, vous avez trouve !\nLe mot etait bien '%s' !\n", motRand);
-
-        return 1;
-    } else {
-
-        return 0;
+        printf("Bravo, vous avez trouve !\n");
     }
 }

@@ -1,6 +1,11 @@
 #ifndef DEFINE_H_INCLUDED
 #define DEFINE_H_INCLUDED
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+
 //constantes
 #define NBMOTS 5        //nombre de mots dans le tableau des choix
 #define TAILLEMAX 20    //longueur max d'un mot
@@ -9,15 +14,15 @@
 //prototypes
     extern void regles();
     extern char lecture();
-    extern char *comparaison(int tailleMot, int *compteur, int *gagne,
-                             char lettre, char motDevine[], char motRand[]);
+    extern void comparaison(int tailleMot, int *compteur, char lettre,
+                             char motDevine[], char motRand[]);
     extern void defaite(int compteur, char motRand[]);
-    extern int victoire(int tailleMot, char motDevine[], char motRand[]);
+    extern void victoire(char motDevine[], char motRand[]);
 
-    extern void init(int *tailleMot, int *compteur, int *gagne, char *lettre);
-    extern char *init_tableau();
+    extern void init(int *tailleMot, int *compteur, char *lettre);
+    extern void init_tableau(char initMot[TAILLEMAX]);
 
-    extern char *choixMot(char motTemp[TAILLEMAX]);
+    extern void choixMot(char motTemp[TAILLEMAX]);
     extern int rand();
 
 #endif // DEFINE_H_INCLUDED

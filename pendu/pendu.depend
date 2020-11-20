@@ -5,18 +5,18 @@
 	<time.h>
 	<string.h>
 
-1605860576 source:c:\users\marin\desktop\cours\fd 2\algo\exercices\pendu\pendu\main.c
+1605867991 source:c:\users\marin\desktop\cours\fd 2\algo\exercices\pendu\pendu\main.c
+	"define.h"
+
+1605867986 c:\users\marin\desktop\cours\fd 2\algo\exercices\pendu\pendu\define.h
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<string.h>
+
+1605867290 source:c:\users\marin\desktop\cours\fd 2\algo\exercices\pendu\pendu\methodes.c
 	"define.h"
 
-1605860561 c:\users\marin\desktop\cours\fd 2\algo\exercices\pendu\pendu\define.h
-
-1605801191 source:c:\users\marin\desktop\cours\fd 2\algo\exercices\pendu\pendu\methodes.c
-	"define.h"
-
-1605860611 source:c:\users\marin\desktop\cours\fd 2\algo\exercices\pendu\pendu\initvariables.c
+1605867826 source:c:\users\marin\desktop\cours\fd 2\algo\exercices\pendu\pendu\initvariables.c
 	"define.h"
 
