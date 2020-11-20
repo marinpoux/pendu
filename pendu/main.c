@@ -26,8 +26,8 @@ int main()
 
     init(&tailleMot, &compteur, &gagne, &proposition);
 
-    *motRand = init_tableau(motRand);
-    *motDevine = init_tableau(motDevine);
+    *motRand = init_tableau();
+    *motDevine = init_tableau();
 
     srand(time(NULL));                      //initialisation de la generation de nombres aleatoires
     *motRand = choixMot(motRand);           //pioche du mot a deviner

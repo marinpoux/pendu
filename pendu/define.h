@@ -15,8 +15,9 @@
     extern int victoire(int tailleMot, char motDevine[], char motRand[]);
 
     extern void init(int *tailleMot, int *compteur, int *gagne, char *lettre);
-    extern char *init_tableau(char motTab[TAILLEMAX]);
+    extern char *init_tableau();
 
-    extern char *choixMot(char motTab[TAILLEMAX]);
+    extern char *choixMot(char motTemp[TAILLEMAX]);
+    extern int rand();
 
 #endif // DEFINE_H_INCLUDED

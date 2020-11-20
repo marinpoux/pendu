@@ -12,17 +12,18 @@ extern void init(int *tailleMot, int *compteur, int *gagne, char *lettre){
 }
 
 
-extern char *init_tableau(char motTab[TAILLEMAX]){
+extern char *init_tableau(){
     int iTemp=0;
+    char initMot[TAILLEMAX];
 
-    for (iTemp=0; iTemp<TAILLEMAX; iTemp++){
-        motTab[iTemp]=0;
+    for (iTemp=0; iTemp<TAILLEMAX-1; iTemp++){
+        initMot[iTemp]=0;
     }
-    return motTab;
+    return initMot;
 }
 
 
-extern char *choixMot(char motTab[TAILLEMAX]){
+extern char *choixMot(char motTemp[TAILLEMAX]){
     int jTemp=0;
     int nbRand = rand()%NBMOTS;
 
@@ -38,10 +39,10 @@ extern char *choixMot(char motTab[TAILLEMAX]){
 
     while ((jTemp<TAILLEMAX) && (tabMots[nbRand][jTemp] != '\0')) {
 
-        motTab[jTemp] = tabMots[nbRand][jTemp];
+        motTemp[jTemp] = tabMots[nbRand][jTemp];
         jTemp++;
     }
-    //printf("%s\n", motTab);
+    //printf("%s\n", motTemp);
 
-    return motTab;
+    return motTemp;
 }
